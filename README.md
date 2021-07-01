@@ -8,6 +8,7 @@ Aplicação desenvolvida no bootcamp ignite - trilha react native
 | - | - |
 | 1 | Cadastrar uma nova skill |
 | 2 | Listar skills cadastradas |
+| 3 | Remover uma skill |
 
 ## Recursos
 
