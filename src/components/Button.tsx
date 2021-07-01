@@ -6,11 +6,11 @@ import {
   TouchableOpacityProps
 } from 'react-native'
 
-interface ButtonProps extends TouchableOpacityProps {
+interface IButtonProps extends TouchableOpacityProps {
   title: string
 }
 
-export function Button({ title, ...rest }: ButtonProps) {
+export function Button({ title, ...rest }: IButtonProps) {
   return (
     <TouchableOpacity
       style={styles.button}
