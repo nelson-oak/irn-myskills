@@ -11,13 +11,24 @@ import {
 import { Button } from '../components/Button'
 import { SkillCard } from '../components/SkillCard'
 
+interface ISkillData {
+  id: string
+  name: string
+  date?: Date
+}
+
 export function Home() {
   const [newSkill, setNewSkill] = useState('')
-  const [mySkills, setMySkills] = useState([])
+  const [mySkills, setMySkills] = useState<ISkillData[]>([])
   const [grettings, setGrettings] = useState('')
 
   function handleAddNewSkill() {
-    setMySkills(oldSkills => [...oldSkills, newSkill])
+    const data = {
+      id: String(new Date().getTime()),
+      name: newSkill
+    }
+
+    setMySkills(oldSkills => [...oldSkills, data])
   }
 
   useEffect(() => {
@@ -57,9 +68,9 @@ export function Home() {
 
       <FlatList
         data={mySkills}
-        keyExtractor={item => item}
+        keyExtractor={item => item.id}
         renderItem={({ item: skill }) => (
-          <SkillCard skill={skill} />
+          <SkillCard skill={skill.name} />
         )}
       />
     </View>
