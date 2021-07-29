@@ -58,6 +58,7 @@ export function Home() {
       </Text>
 
       <TextInput
+        testID="input-new-skill"
         style={styles.input}
         placeholder="New Skill"
         placeholderTextColor="#555"
@@ -65,6 +66,7 @@ export function Home() {
       />
 
       <Button
+        testID="button-add"
         title="Add"
         onPress={handleAddNewSkill}
       />
