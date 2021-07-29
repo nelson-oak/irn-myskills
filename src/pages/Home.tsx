@@ -20,7 +20,7 @@ interface ISkillData {
 export function Home() {
   const [newSkill, setNewSkill] = useState('')
   const [mySkills, setMySkills] = useState<ISkillData[]>([])
-  const [grettings, setGrettings] = useState('')
+  const [greetings, setGreetings] = useState('')
 
   function handleAddNewSkill() {
     const data = {
@@ -39,22 +39,22 @@ export function Home() {
     const currentHour = new Date().getHours()
 
     if (currentHour < 12) {
-      setGrettings('Good morning')
+      setGreetings('Good morning')
     } else if (currentHour >= 12 && currentHour < 18) {
-      setGrettings('Good afternoon')
+      setGreetings('Good afternoon')
     } else {
-      setGrettings('Good night')
+      setGreetings('Good night')
     }
   }, [])
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>
+      <Text testID="welcome" style={styles.title}>
         Welcome, Nelson
       </Text>
 
       <Text style={styles.greettings}>
-        {grettings}
+        {greetings}
       </Text>
 
       <TextInput
