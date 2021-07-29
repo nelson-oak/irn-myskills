@@ -29,6 +29,7 @@ export function Home() {
     }
 
     setMySkills(oldSkills => [...oldSkills, data])
+    setNewSkill('')
   }
 
   function handleRemoveSkill(id: string) {
@@ -62,6 +63,7 @@ export function Home() {
         style={styles.input}
         placeholder="New Skill"
         placeholderTextColor="#555"
+        value={newSkill}
         onChangeText={setNewSkill}
       />
 
@@ -76,8 +78,10 @@ export function Home() {
       </Text>
 
       <FlatList
+        testID="flat-list-skills"
         data={mySkills}
         keyExtractor={item => item.id}
+        keyboardShouldPersistTaps="never"
         renderItem={({ item: skill }) => (
           <SkillCard
             skill={skill.name}
@@ -94,7 +98,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#121015',
     paddingHorizontal: 30,
-    paddingVertical: 70
+    paddingVertical: 30
   },
   title: {
     color: '#fff',
